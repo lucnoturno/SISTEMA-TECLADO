@@ -1,0 +1,10 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+piano_transcription_inference
+numpy
+pillow
+imageio-ffmpeg
+mido
+librosa
+audioread
+matplotlib

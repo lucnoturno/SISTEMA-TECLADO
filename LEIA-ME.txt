@@ -1,0 +1,29 @@
+PianoVideo — transforma uma gravação de piano (mp3/wav) em vídeo de notas caindo
+==============================================================================
+
+Como funciona: a IA ouve a música e descobre as notas -> o programa recria o
+áudio com um piano virtual -> gera o MP4 com as notas caindo e o áudio RECRIADO
+(para você conferir se a transcrição ficou boa). Também salva um arquivo .mid.
+
+INSTALADORES (pasta Output)
+  Mac:      PianoVideo-Mac.dmg      -> abra e arraste o PianoVideo para Aplicativos.
+            Na 1ª vez: clique com o botão direito no app > Abrir > Abrir
+            (o app não é assinado pela Apple).  Mac com chip Apple (M1 ou mais novo).
+  Android:  PianoVideo-Android.apk  -> copie para o celular e toque nele
+            (permita "instalar apps desconhecidos"). Android 10 ou mais novo.
+            Vídeos vão para Filmes/PianoVideo; MIDI para Download/PianoVideo.
+  Windows:  precisa ser compilado em um PC Windows (veja abaixo).
+
+GERAR O INSTALADOR DO WINDOWS (PianoVideo-Setup.exe)
+  Opção A – num PC Windows: instale o Python 3.12 (python.org, marque "Add to PATH")
+            e o Inno Setup 6 (jrsoftware.org). Copie esta pasta (sem dist/, Output/,
+            .venv/, android/) e dê dois cliques em build_windows.bat.
+            Resultado: Output\PianoVideo-Setup.exe
+  Opção B – GitHub: envie esta pasta para um repositório e rode o workflow
+            "build" na aba Actions. Ele gera os instaladores de Windows e Mac.
+
+USO PELO TERMINAL (computador)
+  PianoVideo musica.mp3 -o video.mp4 --res 1080p --fps 60 --speed 3
+
+Créditos: modelo de transcrição "High-resolution Piano Transcription" (Kong et al.,
+ByteDance, licença Apache-2.0); sons Salamander Grand Piano (A. Holm, CC-BY 3.0).

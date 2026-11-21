@@ -1,0 +1,29 @@
+; Instalador do Windows (Inno Setup). Gerado automaticamente pelo build_windows.bat
+; ou pelo GitHub Actions. Resultado: Output\PianoVideo-Setup.exe
+[Setup]
+AppName=PianoVideo
+AppVersion=1.0
+DefaultDirName={autopf}\PianoVideo
+DefaultGroupName=PianoVideo
+OutputBaseFilename=PianoVideo-Setup
+Compression=lzma2
+SolidCompression=yes
+ArchitecturesInstallIn64BitMode=x64compatible
+PrivilegesRequiredOverridesAllowed=dialog
+DiskSpanning=no
+
+[Languages]
+Name: "pt"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
+
+[Tasks]
+Name: "desktopicon"; Description: "Criar atalho na Área de Trabalho"
+
+[Files]
+Source: "dist\PianoVideo\*"; DestDir: "{app}"; Flags: recursesubdirs ignoreversion
+
+[Icons]
+Name: "{group}\PianoVideo"; Filename: "{app}\PianoVideo.exe"
+Name: "{autodesktop}\PianoVideo"; Filename: "{app}\PianoVideo.exe"; Tasks: desktopicon
+
+[Run]
+Filename: "{app}\PianoVideo.exe"; Description: "Abrir o PianoVideo"; Flags: nowait postinstall skipifsilent
